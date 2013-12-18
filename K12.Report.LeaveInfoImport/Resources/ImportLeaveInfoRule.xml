@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="format.xsl" ?>
+<ValidateRule Name="匯入離校資訊">
+  <DuplicateDetection>
+    <Detector Name="PrimaryKey1">
+		  <Field Name="學號"/>
+    </Detector>
+  </DuplicateDetection>
+  <FieldList>
+    <Field Required="True" Name="學號" Description="學號為鍵值必填">
+		  <Validate AutoCorrect="False" Description="「學號」不允許空白。" ErrorType="Error" Validator="不可空白" When=""/>
+		  <Validate AutoCorrect="False" Description="「學號」不存在系統內或是非一般生。" ErrorType="Error" Validator="學生是否存在系統" When=""/>
+    </Field>
+    <Field Required="False" Name="離校學年度" EmptyAlsoValidate="False" Description="請輸入數字">
+		  <Validate AutoCorrect="False" Description="「離校學年度」必須是數字。" ErrorType="Error" Validator="Integer極限" When=""/>
+    </Field>
+    <Field Required="False" Name="離校類別" EmptyAlsoValidate="False" Description="" />
+    <Field Required="False" Name="離校科別" EmptyAlsoValidate="False" Description="" />
+    <Field Required="False" Name="離校班級" EmptyAlsoValidate="False" Description="" />
+  </FieldList>
+  <ValidatorList>
+    <FieldValidator Name="學生是否存在系統" Type="K12REPORTLEAVEINFOIMPORTCHECKSTUDENTNUMBER"/>
+    <FieldValidator Name="不可空白" Type="STRINGLENGTH">
+		  <MinLength>1</MinLength>
+    </FieldValidator>
+    <FieldValidator Name="Integer極限" Type="Integer">
+		  <MinValue>0</MinValue>
+		  <MaxValue>2000000000</MaxValue>
+    </FieldValidator>
+  </ValidatorList>
+  <RowValidate/>
+  <ConditionList/>
+</ValidateRule>
