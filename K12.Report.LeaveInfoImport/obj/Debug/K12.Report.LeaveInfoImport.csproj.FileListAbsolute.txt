@@ -1,7 +1,6 @@
 C:\Dropbox\00-Work\iSchool\MyProjects\[報表]匯入離校資訊\SourceCode\K12.Report.LeaveInfoImport\K12.Report.LeaveInfoImport\bin\Debug\K12.Report.LeaveInfoImport.dll
 C:\Dropbox\00-Work\iSchool\MyProjects\[報表]匯入離校資訊\SourceCode\K12.Report.LeaveInfoImport\K12.Report.LeaveInfoImport\bin\Debug\K12.Report.LeaveInfoImport.pdb
-C:\Dropbox\00-Work\iSchool\MyProjects\[報表]匯入離校資訊\SourceCode\K12.Report.LeaveInfoImport\K12.Report.LeaveInfoImport\bin\Debug\SmartSchool.Broadcaster.dll
-C:\Dropbox\00-Work\iSchool\MyProjects\[報表]匯入離校資訊\SourceCode\K12.Report.LeaveInfoImport\K12.Report.LeaveInfoImport\bin\Debug\SmartSchool.Broadcaster.pdb
+C:\Dropbox\00-Work\iSchool\MyProjects\[報表]匯入離校資訊\SourceCode\K12.Report.LeaveInfoImport\K12.Report.LeaveInfoImport\obj\Debug\K12.Report.LeaveInfoImport.csprojResolveAssemblyReference.cache
 C:\Dropbox\00-Work\iSchool\MyProjects\[報表]匯入離校資訊\SourceCode\K12.Report.LeaveInfoImport\K12.Report.LeaveInfoImport\obj\Debug\K12.Report.LeaveInfoImport.Properties.Resources.resources
 C:\Dropbox\00-Work\iSchool\MyProjects\[報表]匯入離校資訊\SourceCode\K12.Report.LeaveInfoImport\K12.Report.LeaveInfoImport\obj\Debug\K12.Report.LeaveInfoImport.csproj.GenerateResource.Cache
 C:\Dropbox\00-Work\iSchool\MyProjects\[報表]匯入離校資訊\SourceCode\K12.Report.LeaveInfoImport\K12.Report.LeaveInfoImport\obj\Debug\K12.Report.LeaveInfoImport.dll
