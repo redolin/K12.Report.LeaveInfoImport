@@ -59,25 +59,5 @@ namespace K12.Report.LeaveInfoImport.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   查詢類似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;format.xsl&quot; ?&gt;
-        ///&lt;ValidateRule&gt;
-        ///  &lt;DuplicateDetection&gt;
-        ///    &lt;Detector Name=&quot;PrimaryKey1&quot;&gt;
-        ///		  &lt;Field Name=&quot;學號&quot;/&gt;
-        ///    &lt;/Detector&gt;
-        ///  &lt;/DuplicateDetection&gt;
-        ///  &lt;FieldList&gt;
-        ///    &lt;Field Required=&quot;True&quot; Name=&quot;學號&quot; Description=&quot;學號為鍵值必填&quot;&gt;
-        ///		  &lt;Validate AutoCorrect=&quot;False&quot; Description=&quot;「學號」不允許空白。&quot; ErrorType=&quot;Error&quot; Validator=&quot;不可空白&quot; When=&quot;&quot;/&gt;
-        ///		  &lt;Validate AutoCorrect=&quot;False&quot; Description=&quot;「學號」不存在系統內或是非一般生。&quot; ErrorType=&quot;Error&quot; Validator= [字串的其餘部分已遭截斷]&quot;; 的當地語系化字串。
-        /// </summary>
-        internal static string ImportLeaveInfoRule {
-            get {
-                return ResourceManager.GetString("ImportLeaveInfoRule", resourceCulture);
-            }
-        }
     }
 }

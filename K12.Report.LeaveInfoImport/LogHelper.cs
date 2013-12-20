@@ -1,4 +1,5 @@
-﻿using SHSchool.Data;
+﻿using K12.Data;
+using SHSchool.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,12 @@ namespace K12.Report.LeaveInfoImport
     public class LogHelper
     {
         // key: 學生系統ID; value: 新舊資料
-        private Dictionary<string, LeaveInfoRecordPair> leaveInfoPairDic = new Dictionary<string, LeaveInfoRecordPair>();
+        private Dictionary<string, ObjList> leaveInfoPairDic = new Dictionary<string, ObjList>();
 
         /// <summary>
         /// Key: UID, Value: 原始跟更新後的社團學期成績
         /// </summary>
-        public Dictionary<string, LeaveInfoRecordPair> LeaveInfoPairDic
+        public Dictionary<string, ObjList> LeaveInfoPairDic
         {
             get
             {
@@ -29,7 +30,7 @@ namespace K12.Report.LeaveInfoImport
         public void SaveOldRecForLog(SHLeaveInfoRecord rec)
         {
             if (!leaveInfoPairDic.ContainsKey(rec.RefStudentID))
-                leaveInfoPairDic.Add(rec.RefStudentID, new LeaveInfoRecordPair());
+                leaveInfoPairDic.Add(rec.RefStudentID, new ObjList());
             leaveInfoPairDic[rec.RefStudentID]._OldRec = Utility.CopySHLeaveInfoRecord(rec);
         }
 
@@ -40,8 +41,20 @@ namespace K12.Report.LeaveInfoImport
         public void SaveNewRecForLog(SHLeaveInfoRecord rec)
         {
             if (!leaveInfoPairDic.ContainsKey(rec.RefStudentID))
-                leaveInfoPairDic.Add(rec.RefStudentID, new LeaveInfoRecordPair());
+                leaveInfoPairDic.Add(rec.RefStudentID, new ObjList());
             leaveInfoPairDic[rec.RefStudentID]._NewRec = Utility.CopySHLeaveInfoRecord(rec);
+        }
+
+        /// <summary>
+        /// 儲存學生資料
+        /// </summary>
+        /// <param name="rec"></param>
+        public void SaveStudentRecForLog(StudentRecord rec)
+        {
+            
+            if (!leaveInfoPairDic.ContainsKey(rec.ID))
+                leaveInfoPairDic.Add(rec.ID, new ObjList());
+            leaveInfoPairDic[rec.ID]._StudentRec = rec;
         }
 
         ///// <summary>
@@ -85,12 +98,13 @@ namespace K12.Report.LeaveInfoImport
         /// <param name="recUid"></param>
         /// <param name="studentNumber"></param>
         /// <returns></returns>
-        public string ComposeUpdateLogString(LeaveInfoRecordPair pair, string studentNumber)
+        public string ComposeUpdateLogString(ObjList pair)
         {
             //檢查與確認資料是否被修改
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(Global._ColStudentNumber).Append("「").Append(studentNumber).Append("」");
+            sb.Append(Global._ColStudentNumber).Append("「").Append(pair._StudentRec.StudentNumber).Append("」");
+            sb.Append("學生姓名「").Append(pair._StudentRec.Name).Append("」");
             sb.Append(Global.NewLine);
 
             // 多判斷新資料假如是null, 表示沒有更新
@@ -99,7 +113,7 @@ namespace K12.Report.LeaveInfoImport
 
             // 多判斷新資料假如是"", 表示沒有更新
             if ((pair._OldRec.Reason != pair._NewRec.Reason) && (!string.IsNullOrEmpty(pair._NewRec.Reason)))
-                sb.AppendLine(ByOne(Global._ColLeaveCategory, pair._OldRec.Reason, pair._NewRec.Reason));
+                sb.AppendLine(ByOne(Global._ColLeaveReason, pair._OldRec.Reason, pair._NewRec.Reason));
 
             // 多判斷新資料假如是"", 表示沒有更新
             if ((pair._OldRec.DepartmentName != pair._NewRec.DepartmentName) && (!string.IsNullOrEmpty(pair._NewRec.DepartmentName)))
@@ -108,6 +122,10 @@ namespace K12.Report.LeaveInfoImport
             // 多判斷新資料假如是"", 表示沒有更新
             if ((pair._OldRec.ClassName != pair._NewRec.ClassName) && (!string.IsNullOrEmpty(pair._NewRec.ClassName)))
                 sb.AppendLine(ByOne(Global._ColLeaveClassName, pair._OldRec.ClassName, pair._NewRec.ClassName));
+
+            // 多判斷新資料假如是"", 表示沒有更新
+            if ((pair._OldRec.DiplomaNumber != pair._NewRec.DiplomaNumber) && (!string.IsNullOrEmpty(pair._NewRec.DiplomaNumber)))
+                sb.AppendLine(ByOne(Global._ColDiplomaNumber, pair._OldRec.DiplomaNumber, pair._NewRec.DiplomaNumber));
 
             return sb.ToString();
             
@@ -124,9 +142,10 @@ namespace K12.Report.LeaveInfoImport
         }
     }
 
-    public class LeaveInfoRecordPair
+    public class ObjList
     {
         public SHLeaveInfoRecord _OldRec;
         public SHLeaveInfoRecord _NewRec;
+        public StudentRecord _StudentRec;
     }
 }

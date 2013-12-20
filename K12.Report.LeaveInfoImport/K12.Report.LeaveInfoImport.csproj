@@ -32,60 +32,74 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aspose.Cells">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\modules\Campus\Aspose.Cells.dll</HintPath>
+      <HintPath>Library\Aspose.Cells.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Campus.DocumentValidator">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\modules\Campus\Campus.DocumentValidator.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Campus.Import">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\modules\Campus\Campus.Import.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.1, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\components\DevComponents.DotNetBar2.dll</HintPath>
-    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.1, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="FISCA">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\kernel\FISCA.dll</HintPath>
+      <HintPath>Library\FISCA.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.Authentication">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\kernel\FISCA.Authentication.dll</HintPath>
+      <HintPath>Library\FISCA.Authentication.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.Data">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\kernel\FISCA.Data.dll</HintPath>
+      <HintPath>Library\FISCA.Data.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.LogAgent">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\kernel\FISCA.LogAgent.dll</HintPath>
+      <HintPath>Library\FISCA.LogAgent.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.Permission">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\kernel\FISCA.Permission.dll</HintPath>
+      <HintPath>Library\FISCA.Permission.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.Presentation">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\kernel\FISCA.Presentation.dll</HintPath>
+      <HintPath>Library\FISCA.Presentation.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.UDT">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\kernel\FISCA.UDT.dll</HintPath>
+      <HintPath>Library\FISCA.UDT.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="K12.Data">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\modules\SHSchoolLoader\K12.Data.dll</HintPath>
+      <HintPath>Library\K12.Data.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SHSchool.Data">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\modules\SHSchoolLoader\SHSchool.Data.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Library\SHSchool.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.API.PlugIn">
+      <HintPath>Library\SmartSchool.API.PlugIn.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SmartSchool.Broadcaster">
-      <HintPath>..\..\..\..\..\..\..\..\ischool desktop\modules\SHSchoolLoader\SmartSchool.Broadcaster.dll</HintPath>
+      <HintPath>Library\SmartSchool.Broadcaster.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Common, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Common.DotNetBar, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\SmartSchool.Common.DotNetBar.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Core.General">
+      <HintPath>Library\SmartSchool.Core.General.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Customization.Data">
+      <HintPath>Library\SmartSchool.Customization.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Customization.PlugIn">
+      <HintPath>Library\SmartSchool.Customization.PlugIn.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -100,6 +114,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\FDQuery.cs" />
+    <Compile Include="Forms\FrmHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmHelp.Designer.cs">
+      <DependentUpon>FrmHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmLeaveInfoImport.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="LogHelper.cs" />
@@ -112,17 +132,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
-    <Compile Include="ValidationRule\FieldValidator\StudentInischoolCheck.cs" />
-    <Compile Include="ValidationRule\LeaveInfoFieldValidatorFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\FrmHelp.resx">
+      <DependentUpon>FrmHelp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ImportLeaveInfoRule.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
